@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Classic warm background palette */
+  --paper-light: #FFF8F0;
+  --paper-warm: #F5EFE7;
+  --antique-white: #FAF5EE;
+  --parchment: #F0E8DC;
+
+  /* Accent colors */
+  --saffron: #E8861A;
+  --gold: #C9A961;
+  --gold-dark: #A68948;
+  --amber: #D4A843;
+  --crimson: #9B2335;
+  --burgundy: #6B1F3A;
+
+  /* Text colors */
+  --text-primary: #2C2416;
+  --text-secondary: #5A4E3D;
+  --text-muted: #8A7A6A;
+
+  /* Border & accents */
+  --border-ornate: #C9A961;
+  --shadow-soft: rgba(44, 36, 22, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, var(--paper-light) 0%, var(--paper-warm) 50%, var(--parchment) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Classical music background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    /* Musical staff lines - subtle */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 120px,
+      rgba(201, 169, 97, 0.02) 120px,
+      rgba(201, 169, 97, 0.02) 122px
+    ),
+    /* Ornate pattern overlay */
+    radial-gradient(circle at 20% 50%, rgba(232, 134, 26, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201, 169, 97, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(155, 35, 53, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Musical notes decorative background */
+body::after {
+  content: '♪ ♫ ♩ ♬';
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  font-size: 120px;
+  color: rgba(201, 169, 97, 0.04);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(15deg);
+  font-family: serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--paper-warm); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* Gold shimmer text */
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 30%, var(--amber) 50%, var(--gold) 70%, var(--gold-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* Paper texture overlay */
+.paper-texture {
+  position: relative;
+  background-color: rgba(255, 248, 240, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.paper-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.015'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Section fade-in animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Decorative divider */
+.ornate-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.ornate-divider::before,
+.ornate-divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border-ornate), transparent);
+  max-width: 120px;
+}
+
+/* Gold border glow - adjusted for light background */
+.gold-glow {
+  box-shadow:
+    0 4px 20px var(--shadow-soft),
+    0 0 40px rgba(201, 169, 97, 0.12),
+    inset 0 0 20px rgba(201, 169, 97, 0.05);
+  border: 1px solid rgba(201, 169, 97, 0.3);
+}
+
+/* Musical note floating */
+.note-float {
+  animation: float 6s ease-in-out infinite;
+}
+.note-float:nth-child(2) { animation-delay: -2s; }
+.note-float:nth-child(3) { animation-delay: -4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-20px) rotate(5deg); opacity: 0.6; }
+}
+
+/* Classical card style */
+.classical-card {
+  background: linear-gradient(135deg, rgba(255, 248, 240, 0.95) 0%, rgba(250, 245, 238, 0.95) 100%);
+  border: 2px solid rgba(201, 169, 97, 0.2);
+  box-shadow:
+    0 8px 32px rgba(44, 36, 22, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.classical-card:hover {
+  border-color: rgba(201, 169, 97, 0.4);
+  box-shadow:
+    0 12px 48px rgba(44, 36, 22, 0.12),
+    0 0 60px rgba(201, 169, 97, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
+
+/* Vintage ornamental corners */
+.ornate-corners {
+  position: relative;
+}
+
+.ornate-corners::before,
+.ornate-corners::after {
+  content: '❦';
+  position: absolute;
+  color: var(--border-ornate);
+  opacity: 0.3;
+  font-size: 24px;
+}
+
+.ornate-corners::before {
+  top: -12px;
+  left: -12px;
+}
+
+.ornate-corners::after {
+  bottom: -12px;
+  right: -12px;
+  transform: rotate(180deg);
+}
+
+/* Section background variations */
+.section-light {
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 248, 240, 0.5) 50%, transparent 100%);
+}
+
+.section-warm {
+  background: linear-gradient(180deg, rgba(250, 245, 238, 0.3) 0%, rgba(240, 232, 220, 0.5) 100%);
+}
+
+/* Text shadows for readability */
+.text-ornate {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Ensure all content is above background */
+main, header, footer, section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced button styles */
+.btn-primary {
+  @apply px-8 py-4 bg-saffron text-paper-light font-body font-semibold text-sm tracking-widest uppercase rounded-full transition-all duration-300 shadow-lg;
+}
+
+.btn-primary:hover {
+  @apply bg-amber scale-105 shadow-xl;
+  box-shadow: 0 12px 48px rgba(232, 134, 26, 0.3);
+}
+
+.btn-secondary {
+  @apply px-8 py-4 border-2 border-gold text-gold-dark font-body font-medium text-sm tracking-widest uppercase rounded-full transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply border-gold-dark bg-gold/10;
+}
+
+/* Enhanced card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(201, 169, 97, 0.25);
+}
+
+/* Decorative border styles */
+.border-ornate {
+  position: relative;
+  border: 2px solid var(--border-ornate);
+  border-image: linear-gradient(135deg, var(--gold), var(--saffron), var(--gold)) 1;
+}
+
+/* Scroll reveal animation enhancement */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-section {
+  animation: fadeInUp 0.9s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.fade-in-section.is-visible {
+  animation-play-state: running;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--saffron), var(--gold), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Smooth hover transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom selection color */
+::selection {
+  background-color: var(--saffron);
+  color: var(--paper-light);
+}
+
+::-moz-selection {
+  background-color: var(--saffron);
+  color: var(--paper-light);
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--paper-warm) 0%,
+    var(--paper-antique) 50%,
+    var(--paper-warm) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Tooltip styles */
+.tooltip {
+  @apply absolute bg-text-primary text-paper-light text-xs px-3 py-2 rounded-lg opacity-0 pointer-events-none transition-opacity duration-200;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(44, 36, 22, 0.3);
+}
+
+.tooltip-trigger:hover .tooltip {
+  opacity: 1;
+}
+
+/* Better form styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  @apply transition-all duration-300;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 169, 97, 0.15);
+}
+
+/* Enhanced animations */
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Ornate separator */
+.ornate-separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.ornate-separator::before,
+.ornate-separator::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold) 20%,
+    var(--saffron) 50%,
+    var(--gold) 80%,
+    transparent
+  );
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide;
+  background: linear-gradient(135deg, rgba(232, 134, 26, 0.1), rgba(201, 169, 97, 0.1));
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  color: var(--gold-dark);
+}
+
+/* Hero Section Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 2s ease-in-out infinite;
+}
+
+/* Navbar enhancement */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--saffron);
+  transition: width 0.3s ease;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+/* Radial gradient utility */
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+}
