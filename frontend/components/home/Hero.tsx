@@ -166,18 +166,7 @@ export default function Hero() {
         {/* Enhanced gradient transition */}
         <div className="relative pointer-events-none">
           {/* Multi-layer gradient fade */}
-          <div className="h-40 sm:h-48 md:h-64 bg-gradient-to-t from-paper-light via-paper-warm/60 to-transparent"></div>
-
-          {/* Decorative elements before wave */}
-          <div className="absolute top-12 sm:top-16 md:top-20 left-0 right-0">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center opacity-20">
-              <span className="text-gold text-3xl sm:text-4xl md:text-5xl font-display">♪</span>
-              <span className="text-saffron text-2xl sm:text-3xl md:text-4xl">✦</span>
-              <span className="text-amber text-3xl sm:text-4xl md:text-5xl font-display">♫</span>
-              <span className="text-gold text-2xl sm:text-3xl md:text-4xl hidden sm:block">✦</span>
-              <span className="text-crimson text-3xl sm:text-4xl md:text-5xl font-display hidden md:block">♬</span>
-            </div>
-          </div>
+          <div className="h-40 sm:h-48 md:h-64 bg-gradient-to-t from-paper-light/20 via-paper-warm/2 to-transparent"></div>
 
           {/* Bottom ornamental line */}
           <div className="h-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
