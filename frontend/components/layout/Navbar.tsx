@@ -68,8 +68,8 @@ export default function Navbar() {
         ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-paper-warm/98 backdrop-blur-lg border-b border-gold/30 shadow-xl'
-            : 'bg-paper-warm/95 backdrop-blur-md border-b border-gold/20 shadow-md'
+            ? 'bg-paper-warm border-b border-gold/30 shadow-xl'
+            : 'bg-paper-warm border-b border-gold/20 shadow-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -143,7 +143,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`lg:hidden fixed left-0 right-0 bg-paper-warm/98 backdrop-blur-xl border-b border-gold/20 shadow-2xl transition-all duration-300 overflow-hidden z-40 ${
+        className={`lg:hidden fixed left-0 right-0 bg-paper-warm border-b border-gold/20 shadow-2xl transition-all duration-300 overflow-hidden z-40 ${
           open ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
         style={{ top: `${navHeight}px` }}
