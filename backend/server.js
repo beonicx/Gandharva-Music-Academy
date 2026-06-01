@@ -4,11 +4,12 @@ import dotenv from 'dotenv'
 import nodemailer from 'nodemailer'
 import rateLimit from 'express-rate-limit'
 import { body, validationResult } from 'express-validator'
+import twilio from 'twilio'
 
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5001
 
 // ── Middleware ──────────────────────────────────────────────
 app.use(express.json())
@@ -32,6 +33,13 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,       // Gmail App Password
   },
 })
+
+// ── WhatsApp (Twilio) setup ─────────────────────────────────
+// Optional: Only used if TWILIO credentials are configured
+let twilioClient = null
+if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
+  twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+}
 
 // ── Routes ──────────────────────────────────────────────────
 
@@ -97,7 +105,7 @@ app.post(
     `
 
     try {
-      // Only send if EMAIL_USER is configured
+      // Send email notification
       if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
         await transporter.sendMail({
           from: `"Gandharva Academy Website" <${process.env.EMAIL_USER}>`,
@@ -106,6 +114,29 @@ app.post(
           html: htmlContent,
           replyTo: email || undefined,
         })
+      }
+
+      // Send WhatsApp notification (optional)
+      if (twilioClient && process.env.WHATSAPP_TO && process.env.WHATSAPP_FROM) {
+        const whatsappMessage = `🎵 *New Enquiry - Gandharva Music Academy*\n\n` +
+          `*Name:* ${name}\n` +
+          `*Phone:* ${phone}\n` +
+          `${email ? `*Email:* ${email}\n` : ''}` +
+          `*Course:* ${course}\n` +
+          `${message ? `*Message:* ${message}\n` : ''}\n` +
+          `_Submitted via website_`
+
+        try {
+          await twilioClient.messages.create({
+            from: process.env.WHATSAPP_FROM,  // e.g., 'whatsapp:+14155238886'
+            to: process.env.WHATSAPP_TO,      // e.g., 'whatsapp:+916388250645'
+            body: whatsappMessage,
+          })
+          console.log(`[WHATSAPP] Notification sent for enquiry: ${name}`)
+        } catch (whatsappErr) {
+          console.error('[WHATSAPP ERROR]', whatsappErr.message)
+          // Don't fail the request if WhatsApp fails
+        }
       }
 
       console.log(`[ENQUIRY] ${new Date().toISOString()} | ${name} | ${phone} | ${course}`)

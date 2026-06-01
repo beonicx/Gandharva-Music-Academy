@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { Phone, MapPin, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react'
 
 const courses = [
   'Classical Singing', 'Semi-Classical Singing', 'Folk Singing',
@@ -91,6 +91,14 @@ export default function Contact() {
                 link: 'tel:+916388250645',
                 color: 'saffron',
                 bgGradient: 'from-saffron/10 to-amber/5',
+              },
+              {
+                icon: <MessageCircle size={20} />,
+                label: 'WhatsApp',
+                value: '+91 63882 50645',
+                link: 'https://wa.me/916388250645?text=Hello!%20I%20would%20like%20to%20inquire%20about%20music%20classes.',
+                color: 'green-600',
+                bgGradient: 'from-green-500/10 to-emerald/5',
               },
               {
                 icon: <MapPin size={20} />,

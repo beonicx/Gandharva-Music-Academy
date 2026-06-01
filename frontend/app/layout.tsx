@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import WhatsAppButton from '@/components/whatsapp/WhatsAppButton'
 
 export const metadata: Metadata = {
   title: 'Gandharva Music Academy — Classical Music & Dance, Ghazipur',
@@ -26,6 +27,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased min-h-screen">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   )
