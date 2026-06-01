@@ -34,9 +34,9 @@ export default function About() {
         {/* Left — Image with decorative elements */}
         <div className="fade-in-section relative flex items-center justify-center order-2 md:order-1">
           <div className="classical-card w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl sm:rounded-3xl relative overflow-hidden shadow-2xl border-2 border-gold/30 group">
-            {/* Kathak Dancer Image */}
+            {/* Image */}
             <Image
-              src="/kathak-dancer.jpg"
+              src="/main3.jpg"
               alt="kathak Dancer - Classical Indian Dance"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"

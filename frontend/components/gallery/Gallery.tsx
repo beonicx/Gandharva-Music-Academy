@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const galleryImages = [
   { id: 1, title: 'Indian Classical Instruments', src: '/hero-instruments.jpg', local: true },
-  { id: 2, title: 'Kathak Dance Performance', src: '/kathak-dancer.jpg', local: true },
-  { id: 3, title: 'Academy Gallery', src: '/main1.jpg', local: true },
+  { id: 2, title: 'Academy Gallery', src: '/main1.jpg', local: true },
+  { id: 3, title: 'Kathak Dance Performance', src: '/kathak-dancer.jpg', local: true },
   { id: 4, title: 'Music Sessions', src: '/main2.jpg', local: true },
   { id: 5, title: 'Cultural Events', src: '/main3.jpg', local: true },
   { id: 6, title: 'Learning Moments', src: '/main4.jpg', local: true },
