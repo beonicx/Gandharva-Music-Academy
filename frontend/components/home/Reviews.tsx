@@ -84,7 +84,7 @@ export default function Reviews() {
         <div className="fade-in-section text-center max-w-2xl mx-auto mb-10 sm:mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
             <div className="h-px w-8 sm:w-10 bg-saffron" />
-            <span className="text-gold text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
+            <span className="text-gold text-xs sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
               Testimonials
             </span>
             <div className="h-px w-8 sm:w-10 bg-saffron" />
@@ -97,14 +97,14 @@ export default function Reviews() {
           <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-4 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-gold/20 bg-saffron/5">
             <div className="text-center">
               <div className="font-display text-2xl sm:text-3xl text-gold font-semibold">5.0</div>
-              <div className="text-text-muted text-[10px] sm:text-xs font-body">Google</div>
+              <div className="text-text-muted text-xs sm:text-xs font-body">Google</div>
             </div>
             <div className="h-6 sm:h-8 w-px bg-saffron/20" />
             <div className="flex text-gold text-base sm:text-lg md:text-xl">★★★★★</div>
             <div className="h-6 sm:h-8 w-px bg-saffron/20" />
             <div className="text-center">
               <div className="font-display text-2xl sm:text-3xl text-gold font-semibold">5/5</div>
-              <div className="text-text-muted text-[10px] sm:text-xs font-body">JustDial · 81 votes</div>
+              <div className="text-text-muted text-xs sm:text-xs font-body">JustDial · 81 votes</div>
             </div>
           </div>
         </div>
@@ -128,10 +128,10 @@ export default function Reviews() {
               </div>
 
               {/* Stars */}
-              <div className="flex text-saffron text-sm sm:text-base mb-3 sm:mb-4">{'★'.repeat(review.rating)}</div>
+              <div className="flex text-saffron text-base sm:text-base mb-3 sm:mb-4">{'★'.repeat(review.rating)}</div>
 
               {/* Review text */}
-              <p className="font-body text-text-secondary text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 relative z-10">
+              <p className="font-body text-text-secondary text-sm sm:text-sm leading-relaxed mb-5 sm:mb-6 relative z-10">
                 "{review.text}"
               </p>
 
@@ -144,8 +144,8 @@ export default function Reviews() {
                   {review.initial}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-body text-text-primary text-xs sm:text-sm font-medium truncate">{review.name}</div>
-                  <div className="font-body text-text-muted text-[10px] sm:text-xs">{review.date}</div>
+                  <div className="font-body text-text-primary text-sm sm:text-sm font-medium truncate">{review.name}</div>
+                  <div className="font-body text-text-muted text-xs sm:text-xs">{review.date}</div>
                 </div>
                 <div className="ml-auto opacity-70 flex-shrink-0">
                   <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none">

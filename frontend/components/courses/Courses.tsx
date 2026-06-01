@@ -70,7 +70,7 @@ export default function Courses() {
       <div className="fade-in-section text-center max-w-2xl mx-auto px-4 sm:px-6 mb-10 sm:mb-12 md:mb-16">
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
           <div className="h-px w-8 sm:w-10 bg-saffron" />
-          <span className="text-gold text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
+          <span className="text-gold text-xs sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
             What We Teach
           </span>
           <div className="h-px w-8 sm:w-10 bg-saffron" />
@@ -79,7 +79,7 @@ export default function Courses() {
           Our Courses &{' '}
           <span className="text-gold font-semibold italic">Instruments</span>
         </h2>
-        <p className="font-body text-text-muted text-sm sm:text-base leading-relaxed">
+        <p className="font-body text-text-muted text-base sm:text-base leading-relaxed">
           From ancient classical traditions to contemporary forms — we offer diverse programs
           for students of all ages and skill levels.
         </p>
@@ -123,10 +123,10 @@ export default function Courses() {
                   }}
                 >
                   <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                  <h4 className="font-display text-base sm:text-lg font-semibold text-text-primary mb-2">
+                  <h4 className="font-display text-lg sm:text-lg font-semibold text-text-primary mb-2">
                     {item.name}
                   </h4>
-                  <p className="font-body text-text-secondary text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <p className="font-body text-text-secondary text-sm sm:text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

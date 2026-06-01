@@ -113,13 +113,13 @@ export default function Hero() {
 
         {/* Main heading */}
         <h1 className="font-display font-light mb-3 sm:mb-4 leading-[1.05] animate-fade-in">
-          <span className="block text-paper-light/95 text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0.3em] sm:tracking-[0.4em] uppercase font-body font-light mb-4 sm:mb-6 drop-shadow-2xl">
+          <span className="block text-paper-light/95 text-lg sm:text-xl md:text-xl lg:text-2xl tracking-[0.3em] sm:tracking-[0.4em] uppercase font-body font-light mb-4 sm:mb-6 drop-shadow-2xl">
             Welcome to
           </span>
-          <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl shimmer-text font-semibold drop-shadow-2xl mb-2 sm:mb-3">
+          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl shimmer-text font-semibold drop-shadow-2xl mb-2 sm:mb-3">
             Gandharva
           </span>
-          <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-paper-light font-light tracking-wide drop-shadow-2xl">
+          <span className="block text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-paper-light font-light tracking-wide drop-shadow-2xl">
             Music Academy
           </span>
         </h1>
@@ -132,12 +132,12 @@ export default function Hero() {
         </div>
 
         {/* Tagline */}
-        <p className="font-display italic text-paper-light text-base sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-2 sm:mb-3 drop-shadow-lg px-4">
+        <p className="font-display italic text-paper-light text-lg sm:text-xl md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-2 sm:mb-3 drop-shadow-lg px-4">
           "Where the soul of Indian classical music meets dedicated artistry"
         </p>
         <div className="flex items-center justify-center gap-2 mb-10 sm:mb-14 flex-wrap px-4">
           <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>
-          <p className="font-body text-paper-warm text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-lg text-center">
+          <p className="font-body text-paper-warm text-sm sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-lg text-center">
             Ghazipur, Uttar Pradesh — Est. in Tradition
           </p>
           <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>

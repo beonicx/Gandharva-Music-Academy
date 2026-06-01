@@ -72,7 +72,7 @@ export default function About() {
           {/* Section label */}
           <div className="flex items-center gap-2 sm:gap-3 justify-center md:justify-start">
             <div className="h-px w-8 sm:w-10 bg-saffron" />
-            <span className="text-gold text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
+            <span className="text-gold text-xs sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
               Our Story
             </span>
           </div>
@@ -83,13 +83,13 @@ export default function About() {
             in Ghazipur
           </h2>
 
-          <p className="font-body text-text-muted text-sm sm:text-base leading-relaxed">
+          <p className="font-body text-text-muted text-base sm:text-base leading-relaxed">
             Gandharva Music Academy was founded with a singular vision: to preserve and propagate
             the rich heritage of Indian classical music in the Ghazipur region. We offer
             comprehensive training in both classical and contemporary forms, nurturing students
             from beginners to advanced levels.
           </p>
-          <p className="font-body text-text-muted text-sm sm:text-base leading-relaxed">
+          <p className="font-body text-text-muted text-base sm:text-base leading-relaxed">
             Our students consistently describe us as "the perfect place to make a career in music."
             Whether you dream of performing on stage or simply wish to connect with your cultural
             roots through music, our experienced instructors guide every step of your journey.
@@ -97,12 +97,12 @@ export default function About() {
 
           {/* Location */}
           <div className="flex items-start gap-2.5 sm:gap-3 pt-2 justify-center md:justify-start">
-            <span className="text-gold mt-0.5">📍</span>
+            <span className="text-gold mt-0.5 text-lg">📍</span>
             <div className="text-left">
-              <p className="font-body text-text-primary text-xs sm:text-sm">
+              <p className="font-body text-text-primary text-sm sm:text-sm">
                 Eurokids Pre-school, Vishambhar Nath Shiv Mandir, Lanka
               </p>
-              <p className="font-body text-text-muted text-xs sm:text-sm">Ghazipur, Uttar Pradesh — 233001</p>
+              <p className="font-body text-text-muted text-sm sm:text-sm">Ghazipur, Uttar Pradesh — 233001</p>
             </div>
           </div>
 
@@ -110,10 +110,10 @@ export default function About() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-4 pt-5 sm:pt-6 border-t border-gold/10">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <div className="font-display text-xl sm:text-2xl md:text-3xl text-gold font-semibold">
+                <div className="font-display text-2xl sm:text-2xl md:text-3xl text-gold font-semibold">
                   {s.value}
                 </div>
-                <div className="font-body text-text-muted text-[10px] sm:text-xs mt-1 leading-tight">{s.label}</div>
+                <div className="font-body text-text-muted text-xs sm:text-xs mt-1 leading-tight">{s.label}</div>
               </div>
             ))}
           </div>
