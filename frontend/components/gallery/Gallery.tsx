@@ -5,10 +5,13 @@ import Image from 'next/image'
 const galleryImages = [
   { id: 1, title: 'Indian Classical Instruments', src: '/hero-instruments.jpg', local: true },
   { id: 2, title: 'Kathak Dance Performance', src: '/kathak-dancer.jpg', local: true },
-  { id: 3, title: 'Harmonium Classes', src: '/harmonium.jpg', local: true },
-  { id: 4, title: 'Classical Music Class', src: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800', local: false },
-  { id: 5, title: 'Tabla Session', src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800', local: false },
-  { id: 6, title: 'Guitar Practice', src: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800', local: false },
+  { id: 3, title: 'Academy Gallery', src: '/main1.jpg', local: true },
+  { id: 4, title: 'Music Sessions', src: '/main2.jpg', local: true },
+  { id: 5, title: 'Cultural Events', src: '/main3.jpg', local: true },
+  { id: 6, title: 'Learning Moments', src: '/main4.jpg', local: true },
+  { id: 7, title: 'Cultural Events', src: '/main5.jpg', local: true },
+  { id: 8, title: 'Dance Recitals', src: '/main6.jpg', local: true },
+  { id: 9, title: 'Musical Heritage', src: '/main7.jpg', local: true },
 ]
 
 export default function Gallery() {
