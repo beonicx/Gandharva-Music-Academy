@@ -50,7 +50,11 @@ export default function Navbar() {
     }
     updateHeight()
     window.addEventListener('resize', updateHeight)
-    return () => window.removeEventListener('resize', updateHeight)
+    const timeoutId = setTimeout(updateHeight, 100)
+    return () => {
+      window.removeEventListener('resize', updateHeight)
+      clearTimeout(timeoutId)
+    }
   }, [scrolled])
 
   const isActive = (href: string) => {
@@ -68,66 +72,64 @@ export default function Navbar() {
             : 'bg-paper-warm/95 backdrop-blur-md border-b border-gold/20 shadow-md'
         }`}
       >
-        <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-4 lg:py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex flex-col leading-tight group transition-transform duration-300 hover:scale-105 relative z-50 flex-shrink-0"
-            onClick={() => setOpen(false)}
-          >
-            <span className="font-display text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-saffron tracking-wide whitespace-nowrap">
-              Gandharva
-            </span>
-            <span className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-text-muted group-hover:text-gold transition-colors whitespace-nowrap">
-              Music Academy
-            </span>
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <nav className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="flex flex-col leading-tight group transition-transform duration-300 hover:scale-105 relative z-50 flex-shrink-0"
+              onClick={() => setOpen(false)}
+            >
+              <span className="font-display text-lg sm:text-xl md:text-2xl font-semibold text-saffron tracking-wide">
+                Gandharva
+              </span>
+              <span className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-text-muted group-hover:text-gold transition-colors">
+                Music Academy
+              </span>
+            </Link>
 
-          {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-3 lg:gap-4 xl:gap-6 2xl:gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`text-xs lg:text-sm xl:text-base font-body transition-all duration-300 tracking-wider uppercase relative group whitespace-nowrap ${
-                    isActive(link.href)
-                      ? 'text-saffron font-semibold'
-                      : 'text-text-secondary hover:text-saffron'
-                  }`}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-saffron transition-all duration-300 ${
-                      isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+            {/* Desktop links */}
+            <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-sm font-body transition-all duration-300 tracking-wider uppercase relative group ${
+                      isActive(link.href)
+                        ? 'text-saffron font-semibold'
+                        : 'text-text-secondary hover:text-saffron'
                     }`}
-                  ></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-saffron transition-all duration-300 ${
+                        isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    ></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          {/* CTA button */}
-          <Link
-            href="/contact"
-            className="hidden lg:block px-5 lg:px-6 xl:px-7 2xl:px-8 py-2 lg:py-2.5 xl:py-3 text-xs lg:text-sm xl:text-base font-body font-semibold bg-saffron/10 border-2 border-saffron/40 text-saffron rounded-full hover:bg-saffron hover:text-paper-light transition-all duration-300 tracking-wide shadow-lg hover:scale-105 hover:shadow-saffron/30 whitespace-nowrap flex-shrink-0"
-          >
-            Enroll Now
-          </Link>
+            {/* CTA button */}
+            <Link
+              href="/contact"
+              className="hidden lg:block px-6 py-2.5 text-sm font-body font-semibold bg-saffron/10 border-2 border-saffron/40 text-saffron rounded-full hover:bg-saffron hover:text-paper-light transition-all duration-300 tracking-wide shadow-lg hover:scale-105 hover:shadow-saffron/30"
+            >
+              Enroll Now
+            </Link>
 
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden text-saffron p-2 -mr-2 relative z-50 transition-transform duration-300 active:scale-90 flex-shrink-0"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
-            {open ? (
-              <X className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
-            ) : (
-              <Menu className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
-            )}
-          </button>
-        </nav>
+            {/* Mobile toggle */}
+            <button
+              className="lg:hidden text-saffron p-2 -mr-2 relative z-50 transition-transform duration-300 active:scale-90"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+            >
+              {open ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </nav>
+        </div>
       </header>
 
       {/* Mobile drawer overlay */}
@@ -142,18 +144,18 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={`lg:hidden fixed left-0 right-0 bg-paper-warm/98 backdrop-blur-xl border-b border-gold/20 shadow-2xl transition-all duration-300 overflow-hidden z-40 ${
-          open ? 'max-h-[calc(100vh-5rem)] opacity-100' : 'max-h-0 opacity-0'
+          open ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
         style={{ top: `${navHeight}px` }}
       >
-        <div className="px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-8 max-h-[calc(100vh-6rem)] overflow-y-auto">
-          <ul className="flex flex-col gap-1 sm:gap-1.5 mb-5 sm:mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <ul className="flex flex-col gap-1 mb-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`block px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 rounded-lg font-body text-base sm:text-lg md:text-xl transition-all duration-200 ${
+                  className={`block px-5 py-3.5 rounded-xl font-body text-base transition-all duration-200 ${
                     isActive(link.href)
                       ? 'bg-saffron/10 text-saffron font-semibold'
                       : 'text-text-primary hover:bg-gold/10 hover:text-saffron'
@@ -164,11 +166,11 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="pt-4 sm:pt-5 border-t border-gold/20">
+          <div className="pt-4 border-t border-gold/20">
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="block w-full text-center px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-body font-semibold bg-saffron text-paper-light rounded-full hover:bg-amber transition-all duration-300 shadow-lg active:scale-95"
+              className="block w-full text-center px-8 py-4 text-sm font-body font-semibold bg-saffron text-paper-light rounded-full hover:bg-amber transition-all duration-300 shadow-lg active:scale-95 tracking-widest uppercase"
             >
               Enroll Now
             </Link>

@@ -69,86 +69,86 @@ export default function Reviews() {
     <section
       id="reviews"
       ref={sectionRef}
-      className="relative py-28 bg-paper-light"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-28 bg-paper-light"
     >
       {/* Background glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] sm:w-[600px] sm:h-[500px] md:w-[800px] md:h-[600px] pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse, rgba(155,35,53,0.05) 0%, transparent 70%)',
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="fade-in-section text-center max-w-2xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-10 bg-saffron" />
-            <span className="text-gold text-xs tracking-[0.35em] uppercase font-body">
+        <div className="fade-in-section text-center max-w-2xl mx-auto mb-10 sm:mb-12 md:mb-16">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <div className="h-px w-8 sm:w-10 bg-saffron" />
+            <span className="text-gold text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-body">
               Testimonials
             </span>
-            <div className="h-px w-10 bg-saffron" />
+            <div className="h-px w-8 sm:w-10 bg-saffron" />
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-light text-text-primary mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-text-primary mb-3 sm:mb-4">
             What Our{' '}
             <span className="text-gold font-semibold italic">Students Say</span>
           </h2>
           {/* Aggregate rating */}
-          <div className="inline-flex items-center gap-4 mt-4 px-6 py-3 rounded-full border border-gold/20 bg-saffron/5">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 mt-3 sm:mt-4 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-gold/20 bg-saffron/5">
             <div className="text-center">
-              <div className="font-display text-3xl text-gold font-semibold">5.0</div>
-              <div className="text-text-muted text-xs font-body">Google</div>
+              <div className="font-display text-2xl sm:text-3xl text-gold font-semibold">5.0</div>
+              <div className="text-text-muted text-[10px] sm:text-xs font-body">Google</div>
             </div>
-            <div className="h-8 w-px bg-saffron/20" />
-            <div className="flex text-gold text-xl">★★★★★</div>
-            <div className="h-8 w-px bg-saffron/20" />
+            <div className="h-6 sm:h-8 w-px bg-saffron/20" />
+            <div className="flex text-gold text-base sm:text-lg md:text-xl">★★★★★</div>
+            <div className="h-6 sm:h-8 w-px bg-saffron/20" />
             <div className="text-center">
-              <div className="font-display text-3xl text-gold font-semibold">5/5</div>
-              <div className="text-text-muted text-xs font-body">JustDial · 81 votes</div>
+              <div className="font-display text-2xl sm:text-3xl text-gold font-semibold">5/5</div>
+              <div className="text-text-muted text-[10px] sm:text-xs font-body">JustDial · 81 votes</div>
             </div>
           </div>
         </div>
 
         {/* Reviews grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {reviews.map((review, i) => (
             <div
               key={review.name}
-              className="fade-in-section classical-card group relative p-6 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl"
+              className="fade-in-section classical-card group relative p-5 sm:p-6 rounded-xl sm:rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-xl"
               style={{
                 animationDelay: `${i * 0.1}s`,
               }}
             >
               {/* Quote mark */}
               <div
-                className="font-display text-6xl leading-none absolute top-4 right-6 opacity-10 pointer-events-none"
+                className="font-display text-5xl sm:text-6xl leading-none absolute top-3 sm:top-4 right-4 sm:right-6 opacity-10 pointer-events-none"
                 style={{ color: review.color }}
               >
                 "
               </div>
 
               {/* Stars */}
-              <div className="flex text-saffron text-base mb-4">{'★'.repeat(review.rating)}</div>
+              <div className="flex text-saffron text-sm sm:text-base mb-3 sm:mb-4">{'★'.repeat(review.rating)}</div>
 
               {/* Review text */}
-              <p className="font-body text-text-secondary text-sm leading-relaxed mb-6 relative z-10">
+              <p className="font-body text-text-secondary text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 relative z-10">
                 "{review.text}"
               </p>
 
               {/* Reviewer */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3">
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center font-display text-sm font-semibold text-white shadow-md"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-display text-xs sm:text-sm font-semibold text-white shadow-md flex-shrink-0"
                   style={{ background: `${review.color}` }}
                 >
                   {review.initial}
                 </div>
-                <div>
-                  <div className="font-body text-text-primary text-sm font-medium">{review.name}</div>
-                  <div className="font-body text-text-muted text-xs">{review.date}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-body text-text-primary text-xs sm:text-sm font-medium truncate">{review.name}</div>
+                  <div className="font-body text-text-muted text-[10px] sm:text-xs">{review.date}</div>
                 </div>
-                <div className="ml-auto opacity-70">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                <div className="ml-auto opacity-70 flex-shrink-0">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                       fill="#4285F4"

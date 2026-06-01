@@ -61,7 +61,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden pt-24 pb-0"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden pt-20 sm:pt-24 md:pt-28 pb-0"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -85,13 +85,13 @@ export default function Hero() {
 
       {/* Multiple radial glows for depth */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full pointer-events-none z-10"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[800px] md:h-[600px] rounded-full pointer-events-none z-10"
         style={{
           background: 'radial-gradient(ellipse, rgba(232,134,26,0.18) 0%, rgba(201,169,97,0.1) 40%, transparent 70%)',
         }}
       />
       <div
-        className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full pointer-events-none z-10"
+        className="absolute top-1/3 left-1/4 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] rounded-full pointer-events-none z-10"
         style={{
           background: 'radial-gradient(circle, rgba(155,35,53,0.08) 0%, transparent 60%)',
         }}
@@ -99,62 +99,62 @@ export default function Hero() {
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
-      <div className="absolute top-24 left-0 right-0 flex justify-center gap-12 opacity-20 z-10">
-        <span className="text-gold text-4xl font-display">♪</span>
-        <span className="text-saffron text-3xl font-display">✦</span>
-        <span className="text-amber text-4xl font-display">♫</span>
+      <div className="absolute top-20 sm:top-24 left-0 right-0 flex justify-center gap-8 sm:gap-12 opacity-20 z-10">
+        <span className="text-gold text-2xl sm:text-3xl md:text-4xl font-display">♪</span>
+        <span className="text-saffron text-xl sm:text-2xl md:text-3xl font-display">✦</span>
+        <span className="text-amber text-2xl sm:text-3xl md:text-4xl font-display">♫</span>
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-5xl mx-auto px-6 py-12">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full border-2 border-gold/40 bg-paper-light/15 backdrop-blur-md text-gold text-xs tracking-[0.2em] uppercase font-body shadow-xl">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        {/* Badge - hidden on very small screens */}
+        <div className="hidden sm:inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full border-2 border-gold/40 bg-paper-light/15 backdrop-blur-md text-gold text-xs tracking-[0.2em] uppercase font-body shadow-xl">
         </div>
 
         {/* Main heading */}
-        <h1 className="font-display font-light mb-4 leading-[1.05] animate-fade-in">
-          <span className="block text-paper-light/95 text-xl md:text-2xl tracking-[0.4em] uppercase font-body font-light mb-6 drop-shadow-2xl">
+        <h1 className="font-display font-light mb-3 sm:mb-4 leading-[1.05] animate-fade-in">
+          <span className="block text-paper-light/95 text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0.3em] sm:tracking-[0.4em] uppercase font-body font-light mb-4 sm:mb-6 drop-shadow-2xl">
             Welcome to
           </span>
-          <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl shimmer-text font-semibold drop-shadow-2xl mb-3">
+          <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl shimmer-text font-semibold drop-shadow-2xl mb-2 sm:mb-3">
             Gandharva
           </span>
-          <span className="block text-3xl sm:text-4xl md:text-5xl text-paper-light font-light tracking-wide drop-shadow-2xl">
+          <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-paper-light font-light tracking-wide drop-shadow-2xl">
             Music Academy
           </span>
         </h1>
 
         {/* Ornate divider */}
-        <div className="flex items-center justify-center gap-4 my-10">
-          <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold to-gold"></div>
-          <span className="text-gold text-2xl drop-shadow-lg">✦</span>
-          <div className="h-px w-20 bg-gradient-to-r from-gold via-gold to-transparent"></div>
+        <div className="flex items-center justify-center gap-3 sm:gap-4 my-6 sm:my-10">
+          <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent via-gold to-gold"></div>
+          <span className="text-gold text-xl sm:text-2xl drop-shadow-lg">✦</span>
+          <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-gold via-gold to-transparent"></div>
         </div>
 
         {/* Tagline */}
-        <p className="font-display italic text-paper-light text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-3 drop-shadow-lg">
+        <p className="font-display italic text-paper-light text-base sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-2 sm:mb-3 drop-shadow-lg px-4">
           "Where the soul of Indian classical music meets dedicated artistry"
         </p>
-        <div className="flex items-center justify-center gap-2 mb-14">
+        <div className="flex items-center justify-center gap-2 mb-10 sm:mb-14 flex-wrap px-4">
           <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>
-          <p className="font-body text-paper-warm text-sm tracking-[0.2em] uppercase drop-shadow-lg">
+          <p className="font-body text-paper-warm text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-lg text-center">
             Ghazipur, Uttar Pradesh — Est. in Tradition
           </p>
           <div className="w-1.5 h-1.5 rounded-full bg-gold"></div>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center px-4">
           <a
             href="/contact"
-            className="group px-10 py-4 bg-gradient-to-r from-saffron to-amber text-paper-light font-body font-bold text-sm tracking-widest uppercase rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-saffron/60 relative overflow-hidden"
+            className="group w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-saffron to-amber text-paper-light font-body font-bold text-xs sm:text-sm tracking-widest uppercase rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-saffron/60 relative overflow-hidden text-center"
           >
             <span className="relative z-10">Join Our Academy</span>
             <div className="absolute inset-0 bg-gradient-to-r from-amber to-saffron opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </a>
           <a
             href="/courses"
-            className="px-10 py-4 border-2 border-paper-light text-paper-light bg-text-primary/20 backdrop-blur-md font-body font-semibold text-sm tracking-widest uppercase rounded-full hover:border-gold hover:bg-text-primary/30 hover:text-gold transition-all duration-300 shadow-2xl hover:scale-105"
+            className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 border-2 border-paper-light text-paper-light bg-text-primary/20 backdrop-blur-md font-body font-semibold text-xs sm:text-sm tracking-widest uppercase rounded-full hover:border-gold hover:bg-text-primary/30 hover:text-gold transition-all duration-300 shadow-2xl hover:scale-105 text-center"
           >
             Explore Courses
           </a>
@@ -163,20 +163,19 @@ export default function Hero() {
 
       {/* Enhanced Bottom Section */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-
         {/* Enhanced gradient transition */}
         <div className="relative pointer-events-none">
           {/* Multi-layer gradient fade */}
-          <div className="h-64 bg-gradient-to-t from-paper-light via-paper-warm/60 to-transparent"></div>
+          <div className="h-40 sm:h-48 md:h-64 bg-gradient-to-t from-paper-light via-paper-warm/60 to-transparent"></div>
 
           {/* Decorative elements before wave */}
-          <div className="absolute top-20 left-0 right-0">
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center opacity-20">
-              <span className="text-gold text-5xl font-display">♪</span>
-              <span className="text-saffron text-4xl">✦</span>
-              <span className="text-amber text-5xl font-display">♫</span>
-              <span className="text-gold text-4xl">✦</span>
-              <span className="text-crimson text-5xl font-display">♬</span>
+          <div className="absolute top-12 sm:top-16 md:top-20 left-0 right-0">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center opacity-20">
+              <span className="text-gold text-3xl sm:text-4xl md:text-5xl font-display">♪</span>
+              <span className="text-saffron text-2xl sm:text-3xl md:text-4xl">✦</span>
+              <span className="text-amber text-3xl sm:text-4xl md:text-5xl font-display">♫</span>
+              <span className="text-gold text-2xl sm:text-3xl md:text-4xl hidden sm:block">✦</span>
+              <span className="text-crimson text-3xl sm:text-4xl md:text-5xl font-display hidden md:block">♬</span>
             </div>
           </div>
 
